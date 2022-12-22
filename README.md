@@ -27,7 +27,7 @@
 
 - Getting started
 - [Image and icon manipulations](doc/1-image-icon-操作.md)
-- Mouse events and hover
+- [Mouse events and hover](doc/2-mouse-event-鼠标事件.md)
 - Scrolling and scrollbars
 - Tooltips
 - Context Menu
