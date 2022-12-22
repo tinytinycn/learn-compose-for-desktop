@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="learn-compose-for-desktop-jvm-1.0-SNAPSHOT">
+    <output-path>$PROJECT_DIR$/build/libs</output-path>
+    <root id="archive" name="learn-compose-for-desktop-jvm-1.0-SNAPSHOT.jar">
+      <element id="module-output" name="learn-compose-for-desktop.jvmMain" />
+    </root>
+  </artifact>
+</component>
