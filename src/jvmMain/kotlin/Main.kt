@@ -21,7 +21,8 @@ import customComponents.SimpleTable
 
 @OptIn(ExperimentalMaterialApi::class)
 fun main() = application {
-    Window(onCloseRequest = ::exitApplication) {
+
+    /*Window(onCloseRequest = ::exitApplication) {
         val headers = listOf("序号", "姓名", "操作")
         val bodyDataKey = listOf("id", "name")
         val bodyData: List<Item> = DataProvicder.testItems
@@ -62,5 +63,5 @@ fun main() = application {
                 }
             }
         }
-    }
+    }*/
 }
