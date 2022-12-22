@@ -28,8 +28,8 @@
 - Getting started
 - [Image and icon manipulations](doc/1-image-icon-操作.md)
 - [Mouse events and hover](doc/2-mouse-event-鼠标事件.md)
-- Scrolling and scrollbars
-- Tooltips
+- [Scrolling and scrollbars](doc/3-scrolling-and-scrollbar-滚动.md)
+- [Tooltips](doc/3-scrolling-and-scrollbar-滚动.md)
 - Context Menu
 - Top level windows management
 - Menu, tray, notifications
