@@ -316,14 +316,17 @@ fun main() = singleWindowApplication {
         var topBoxCount by remember { mutableStateOf(0) }
         // No indication on interaction
         Box(modifier = Modifier.size(200.dp, 100.dp).background(Color.Blue)
+            // 最通用的点击处理程序（没有额外条件）应该是第一个
             // the most generic click handler (without extra conditions) should be the first one
             .onClick {
+                // 它会收到所有 LMB 点击，在"没有"按下 Shift 的情况下
                 // it will receive all LMB clicks except when Shift is pressed
                 println("Click with primary button")
                 topBoxText = "LMB ${topBoxCount++}"
             }.onClick(
-                keyboardModifiers = { isShiftPressed } // accept clicks only when Shift pressed
+                keyboardModifiers = { isShiftPressed } // 仅在按下 Shift 时接受点击
             ) {
+                // 它将收到所有 LMB 点击，在按下 Shift 的情况下
                 // it will receive all LMB clicks when Shift is pressed
                 println("Click with primary button and shift pressed")
                 topBoxCount++
@@ -341,13 +344,13 @@ fun main() = singleWindowApplication {
         var bottomBoxText by remember { mutableStateOf("Click me\nusing LMB or\nRMB + Alt") }
         var bottomBoxCount by remember { mutableStateOf(0) }
         val interactionSource = remember { MutableInteractionSource() }
-        // With indication on interaction
+        // With indication on interaction 带有点击的视觉效果：点击时会有暗色波纹
         Box(modifier = Modifier.size(200.dp, 100.dp).background(Color.Yellow)
             .onClick(
                 enabled = true,
                 interactionSource = interactionSource,
-                matcher = PointerMatcher.mouse(PointerButton.Secondary), // Right Mouse Button
-                keyboardModifiers = { isAltPressed }, // accept clicks only when Alt pressed
+                matcher = PointerMatcher.mouse(PointerButton.Secondary), // Right Mouse Button 鼠标右键
+                keyboardModifiers = { isAltPressed }, // 仅在按下 Alt 时接受点击
                 onLongClick = { // optional
                     bottomBoxText = "RMB Long Click + Alt ${bottomBoxCount++}"
                     println("Long Click with secondary button and Alt pressed")
@@ -361,7 +364,7 @@ fun main() = singleWindowApplication {
                     println("Click with secondary button and Alt pressed")
                 }
             )
-            .onClick(interactionSource = interactionSource) { // use default parameters
+            .onClick(interactionSource = interactionSource) { // 使用默认参数
                 bottomBoxText = "LMB Click ${bottomBoxCount++}"
                 println("Click with primary button (mouse left button)")
             }
