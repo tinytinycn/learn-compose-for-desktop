@@ -26,7 +26,7 @@
 #### Compose for Desktop
 
 - Getting started
-- Image and icon manipulations
+- [Image and icon manipulations](doc/1-image-icon-操作.md)
 - Mouse events and hover
 - Scrolling and scrollbars
 - Tooltips
