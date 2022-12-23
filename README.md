@@ -34,7 +34,7 @@
 - [Top level windows management](doc/5-window-mgr-顶级窗口管理.md)
 - [Menu, tray, notifications](doc/6-menu-tray-notifications-菜单-托盘-通知.md)
 - [Keyboard support](doc/7-keyboard-event-键盘事件.md)
-- Tab focus navigation
+- [Tab focus navigation](doc/8-tabbing-nav-keyboard-focus.md)
 - Swing interoperability
 - Navigation
 - Accessibility
