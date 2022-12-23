@@ -10,7 +10,7 @@
 
 要为 `TextField` 启用标准上下文菜单，您只需将它放在 `DesktopMaterialTheme` 中：
 
-<details><summary>代码</summary>
+<details><summary>代码☕️</summary>
 
 ```kotlin
 import androidx.compose.material.Text
@@ -31,7 +31,7 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 </details>
 
-<details><summary>图片</summary>
+<details><summary>图片🖼️</summary>
 
 ![context-menu-textfield](https://user-images.githubusercontent.com/5963351/190021028-c207164d-df04-4294-ad8f-da3106c16fb6.png)
 
@@ -41,7 +41,7 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 为 `Text` 组件启用标准上下文菜单是类似的——你只需要让它可选择(selectable)：
 
-<details><summary>代码</summary><p>
+<details><summary>代码☕️</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -59,7 +59,7 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 `text` 的上下文菜单仅包含复制操作：
 
-<details><summary>图片</summary>
+<details><summary>图片🖼️</summary>
 
 ![context-menu-text](https://user-images.githubusercontent.com/5963351/190020951-0cc539a2-f698-4e2b-bc20-9d4aa1b11c6f.png)
 
@@ -69,7 +69,7 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 要为 `TextField` 和 `Text` 组件启用额外的上下文菜单项，使用 `ContextMenuDataProvider` 和 `ContextMenuItem` 元素：
 
-<details><summary>代码</summary><p>
+<details><summary>代码☕️</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.ContextMenuDataProvider
@@ -117,7 +117,7 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 在此示例中，`Text/TextField` 上下文菜单将扩展为两个附加项：
 
-<details><summary>图片</summary>
+<details><summary>图片🖼️</summary>
 
 ![context-menu-user-defined](https://user-images.githubusercontent.com/5963351/190020831-9b87b191-a351-4f70-a726-d5a53577ad53.png)
 
@@ -127,7 +127,7 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 可以为任意应用程序窗口区域创建上下文菜单。这是使用类似于 `ContextMenuDataProvider` 的 `ContextMenuArea` API 实现的。
 
-<details><summary>代码</summary><p>
+<details><summary>代码☕️</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.ContextMenuArea
@@ -157,7 +157,7 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 右键单击蓝色方块将显示包含两个项目的上下文菜单：
 
-<details><summary>图片</summary>
+<details><summary>图片🖼️</summary>
 
 ![contextMenuArea](https://user-images.githubusercontent.com/5963351/190020592-15e851f8-e356-413c-b5c3-225393712292.png)
 
@@ -167,7 +167,7 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 上下文菜单的样式不符合 `MaterialTheme`。要更改其颜色，您应该覆盖 `LocalContextMenuRepresentation`：
 
-<details><summary>代码</summary><p>
+<details><summary>代码☕️</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.DarkDefaultContextMenuRepresentation
@@ -213,7 +213,7 @@ fun main() = singleWindowApplication {
 
 </p></details>
 
-<details><summary>图片</summary>
+<details><summary>图片🖼️</summary>
 
 ![context-menu-style](https://user-images.githubusercontent.com/5963351/190514663-d345a0ba-0b4c-4920-b6cd-743a753d7d83.png)
 
@@ -223,7 +223,7 @@ fun main() = singleWindowApplication {
 
 您可以覆盖应用程序中所有文本和文本字段的文本菜单，覆盖 `TextContextMenu`：
 
-<details><summary>代码</summary><p>
+<details><summary>代码☕️</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.ContextMenuDataProvider
@@ -311,7 +311,7 @@ private fun AnnotatedString.crop() = if (length <= 5) toString() else "${take(5)
 
 </p></details>
 
-<details><summary>图片</summary>
+<details><summary>图片🖼️</summary>
 
 ![custom-text-context-menu](https://user-images.githubusercontent.com/5963351/190509388-92cff018-2880-4cfe-95c4-4c023ecac09d.png)
 
@@ -321,7 +321,7 @@ private fun AnnotatedString.crop() = if (length <= 5) toString() else "${take(5)
 
 如果您将 Compose 嵌入到现有应用程序中，您可能希望文本上下文菜单看起来与应用程序的其他部分相同。为此，有 `JPopupTextMenu`：
 
-<details><summary>代码</summary><p>
+<details><summary>代码☕️</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -447,7 +447,7 @@ fillOval(0, 0, 16, 16)
 
 </p></details>
 
-<details><summary>图片</summary>
+<details><summary>图片🖼️</summary>
 
 ![context-menu-by-swing](https://user-images.githubusercontent.com/5963351/191312702-f455ab2c-4c47-4e11-b615-fc67af1af3f9.png)
 
