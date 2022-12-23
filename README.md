@@ -36,10 +36,11 @@
 - [Keyboard support](doc/7-keyboard-event-键盘事件.md)
 - [Tab focus navigation](doc/8-tabbing-nav-keyboard-focus.md)
 - Swing interoperability
-- Navigation
+- [Navigation](doc/10-navigation-导航.md)
 - Accessibility
 - Building a native distribution
 
-另请参阅 Google 的 [Foundation](https://developer.android.com/jetpack/compose/documentation#core) 和 [Design](https://developer.android.com/jetpack/compose/documentation#design) 文档。
+另请参阅 Google 的 [Foundation](https://developer.android.com/jetpack/compose/documentation#core) 
+和 [Design](https://developer.android.com/jetpack/compose/documentation#design) 文档。
 它们最初是为 Android 编写的，但 **大部分** 信息也适用于 Compose for Desktop。
 
