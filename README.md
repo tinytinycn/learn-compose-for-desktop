@@ -17,7 +17,8 @@
 
 ## Compose Multiplatform, by JetBrains
 
-适用于桌面平台（macOS、Linux、Windows）和 Web 的 Compose Kotlin UI 框架端口，以及核心 Compose 存储库之外的组件。
+适用于桌面平台（macOS、Linux、Windows）和 Web 的 Compose Kotlin UI 框架端口，
+以及核心 [Compose 存储库](https://android.googlesource.com/platform/frameworks/support)之外的组件。
 
 桌面平台的预览功能（检查您的应用程序 UI 而无需构建/运行它）可通过 [IDEA 插件](https://plugins.jetbrains.com/plugin/16541-compose-multiplatform-ide-support)获得。
 
@@ -37,8 +38,8 @@
 - [Tab focus navigation](doc/8-tabbing-nav-keyboard-focus.md)
 - Swing interoperability
 - [Navigation](doc/10-navigation-导航.md)
-- Accessibility
-- Building a native distribution
+- [Accessibility](doc/11-accessibility-辅助功能.md)
+- [Building a native distribution](doc/12-native-distribution-本地发行版.md)
 
 另请参阅 Google 的 [Foundation](https://developer.android.com/jetpack/compose/documentation#core) 
 和 [Design](https://developer.android.com/jetpack/compose/documentation#design) 文档。
