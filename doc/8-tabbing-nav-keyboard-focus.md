@@ -262,7 +262,7 @@ fun main() = application {
 
 </details>
 
-## 使组件可聚焦 focused
+## 使组件处于聚焦状态 focused
 
 为了使组件获得焦点，我们需要创建一个 `FocusRequester` 并将 `Modifier.focusRequester` 修饰符应用到您想要关注的组件上。
 使用 `FocusRequester`，我们可以请求焦点，如下例所示：
