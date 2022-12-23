@@ -355,13 +355,13 @@ import javax.swing.SwingUtilities
 import org.jetbrains.skiko.hostOs
 
 fun main() = SwingUtilities.invokeLater {
-val panel = ComposePanel()
-panel.setContent {
-JPopupTextMenuProvider(panel) {
-Column {
-SelectionContainer {
-Text("Hello, Compose!")
-}
+    val panel = ComposePanel()
+    panel.setContent {
+        JPopupTextMenuProvider(panel) {
+            Column {
+                SelectionContainer {
+                    Text("Hello, Compose!")
+                }
 
                 var text by remember { mutableStateOf("") }
 
@@ -379,31 +379,31 @@ Text("Hello, Compose!")
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun JPopupTextMenuProvider(owner: Component, content: @Composable () -> Unit) {
-val localization = LocalLocalization.current
-CompositionLocalProvider(
-LocalTextContextMenu provides JPopupTextMenu(owner) { textManager, items ->
-JPopupMenu().apply {
-textManager.cut?.also {
-add(
-swingItem(localization.cut, Color.RED, KeyEvent.VK_X, it)
-)
-}
-textManager.copy?.also {
-add(
-swingItem(localization.copy, Color.GREEN, KeyEvent.VK_C, it)
-)
-}
-textManager.paste?.also {
-add(
-swingItem(localization.paste, Color.BLUE, KeyEvent.VK_V, it)
-)
-}
-textManager.selectAll?.also {
-add(JPopupMenu.Separator())
-add(
-swingItem(localization.selectAll, Color.BLACK, KeyEvent.VK_A, it)
-)
-}
+    val localization = LocalLocalization.current
+    CompositionLocalProvider(
+        LocalTextContextMenu provides JPopupTextMenu(owner) { textManager, items ->
+            JPopupMenu().apply {
+                textManager.cut?.also {
+                    add(
+                        swingItem(localization.cut, Color.RED, KeyEvent.VK_X, it)
+                    )
+                }
+                textManager.copy?.also {
+                    add(
+                        swingItem(localization.copy, Color.GREEN, KeyEvent.VK_C, it)
+                    )
+                }
+                textManager.paste?.also {
+                    add(
+                        swingItem(localization.paste, Color.BLUE, KeyEvent.VK_V, it)
+                    )
+                }
+                textManager.selectAll?.also {
+                    add(JPopupMenu.Separator())
+                    add(
+                        swingItem(localization.selectAll, Color.BLACK, KeyEvent.VK_A, it)
+                    )
+                }
 
                 // Here we add other items that can be defined additionaly in the other places of the application via ContextMenuDataProvider
                 for (item in items) {
@@ -420,24 +420,24 @@ swingItem(localization.selectAll, Color.BLACK, KeyEvent.VK_A, it)
 }
 
 private fun swingItem(
-label: String,
-color: Color,
-key: Int,
-onClick: () -> Unit
+    label: String,
+    color: Color,
+    key: Int,
+    onClick: () -> Unit
 ) = JMenuItem(label).apply {
-icon = circleIcon(color)
-accelerator = getKeyStroke(key, if (hostOs.isMacOS) META_DOWN_MASK else CTRL_DOWN_MASK)
-addActionListener { onClick() }
+    icon = circleIcon(color)
+    accelerator = getKeyStroke(key, if (hostOs.isMacOS) META_DOWN_MASK else CTRL_DOWN_MASK)
+    addActionListener { onClick() }
 }
 
 private fun circleIcon(color: Color) = object : Icon {
-override fun paintIcon(c: Component?, g: Graphics, x: Int, y: Int) {
-g.create().apply {
-this.color = color
-translate(16, 2)
-fillOval(0, 0, 16, 16)
-}
-}
+    override fun paintIcon(c: Component?, g: Graphics, x: Int, y: Int) {
+        g.create().apply {
+            this.color = color
+            translate(16, 2)
+            fillOval(0, 0, 16, 16)
+        }
+    }
 
     override fun getIconWidth() = 16
 
