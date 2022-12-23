@@ -31,7 +31,7 @@
 - [Scrolling and scrollbars](doc/3-scrolling-and-scrollbar-滚动.md)
 - [Tooltips](doc/3-scrolling-and-scrollbar-滚动.md)
 - [Context Menu](doc/4-context-meau-上下文菜单.md)
-- Top level windows management
+- [Top level windows management](doc/5-window-mgr-顶级窗口管理.md)
 - Menu, tray, notifications
 - Keyboard support
 - Tab focus navigation
