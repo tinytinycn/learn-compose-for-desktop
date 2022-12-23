@@ -10,7 +10,7 @@
 
 要为 `TextField` 启用标准上下文菜单，您只需将它放在 `DesktopMaterialTheme` 中：
 
-<details><summary>代码</summary><p>
+<details><summary>代码</summary>
 
 ```kotlin
 import androidx.compose.material.Text
@@ -29,9 +29,13 @@ fun main() = singleWindowApplication(title = "Context menu") {
 }
 ```
 
-</p></details>
+</details>
+
+<details><summary>图片</summary>
 
 ![context-menu-textfield](https://user-images.githubusercontent.com/5963351/190021028-c207164d-df04-4294-ad8f-da3106c16fb6.png)
+
+</details>
 
 `TextField` 的标准上下文菜单包含以下基于文本选择的项目：复制、剪切、粘贴、全选。
 
@@ -55,7 +59,11 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 `text` 的上下文菜单仅包含复制操作：
 
+<details><summary>图片</summary>
+
 ![context-menu-text](https://user-images.githubusercontent.com/5963351/190020951-0cc539a2-f698-4e2b-bc20-9d4aa1b11c6f.png)
+
+</details>
 
 ## 用户定义的上下文菜单
 
@@ -109,7 +117,11 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 在此示例中，`Text/TextField` 上下文菜单将扩展为两个附加项：
 
+<details><summary>图片</summary>
+
 ![context-menu-user-defined](https://user-images.githubusercontent.com/5963351/190020831-9b87b191-a351-4f70-a726-d5a53577ad53.png)
+
+</details>
 
 ## 任意区域的上下文菜单
 
@@ -145,7 +157,11 @@ fun main() = singleWindowApplication(title = "Context menu") {
 
 右键单击蓝色方块将显示包含两个项目的上下文菜单：
 
+<details><summary>图片</summary>
+
 ![contextMenuArea](https://user-images.githubusercontent.com/5963351/190020592-15e851f8-e356-413c-b5c3-225393712292.png)
+
+</details>
 
 ## 设置上下文菜单样式
 
@@ -197,7 +213,11 @@ fun main() = singleWindowApplication {
 
 </p></details>
 
+<details><summary>图片</summary>
+
 ![context-menu-style](https://user-images.githubusercontent.com/5963351/190514663-d345a0ba-0b4c-4920-b6cd-743a753d7d83.png)
+
+</details>
 
 ## 自定义文本的上下文菜单组件
 
@@ -291,7 +311,11 @@ private fun AnnotatedString.crop() = if (length <= 5) toString() else "${take(5)
 
 </p></details>
 
+<details><summary>图片</summary>
+
 ![custom-text-context-menu](https://user-images.githubusercontent.com/5963351/190509388-92cff018-2880-4cfe-95c4-4c023ecac09d.png)
+
+</details>
 
 ## 与 Swing 的互操作性
 
@@ -423,4 +447,8 @@ fillOval(0, 0, 16, 16)
 
 </p></details>
 
+<details><summary>图片</summary>
+
 ![context-menu-by-swing](https://user-images.githubusercontent.com/5963351/191312702-f455ab2c-4c47-4e11-b615-fc67af1af3f9.png)
+
+</details>
