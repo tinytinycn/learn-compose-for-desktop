@@ -10,6 +10,8 @@
 
 要为 `TextField` 启用标准上下文菜单，您只需将它放在 `DesktopMaterialTheme` 中：
 
+<details><summary>代码</summary><p>
+
 ```kotlin
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
@@ -27,11 +29,15 @@ fun main() = singleWindowApplication(title = "Context menu") {
 }
 ```
 
+</p></details>
+
 ![context-menu-textfield](https://user-images.githubusercontent.com/5963351/190021028-c207164d-df04-4294-ad8f-da3106c16fb6.png)
 
 `TextField` 的标准上下文菜单包含以下基于文本选择的项目：复制、剪切、粘贴、全选。
 
 为 `Text` 组件启用标准上下文菜单是类似的——你只需要让它可选择(selectable)：
+
+<details><summary>代码</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -45,6 +51,8 @@ fun main() = singleWindowApplication(title = "Context menu") {
 }
 ```
 
+</p></details>
+
 `text` 的上下文菜单仅包含复制操作：
 
 ![context-menu-text](https://user-images.githubusercontent.com/5963351/190020951-0cc539a2-f698-4e2b-bc20-9d4aa1b11c6f.png)
@@ -52,6 +60,8 @@ fun main() = singleWindowApplication(title = "Context menu") {
 ## 用户定义的上下文菜单
 
 要为 `TextField` 和 `Text` 组件启用额外的上下文菜单项，使用 `ContextMenuDataProvider` 和 `ContextMenuItem` 元素：
+
+<details><summary>代码</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.ContextMenuDataProvider
@@ -95,6 +105,8 @@ fun main() = singleWindowApplication(title = "Context menu") {
 }
 ```
 
+</p></details>
+
 在此示例中，`Text/TextField` 上下文菜单将扩展为两个附加项：
 
 ![context-menu-user-defined](https://user-images.githubusercontent.com/5963351/190020831-9b87b191-a351-4f70-a726-d5a53577ad53.png)
@@ -102,6 +114,8 @@ fun main() = singleWindowApplication(title = "Context menu") {
 ## 任意区域的上下文菜单
 
 可以为任意应用程序窗口区域创建上下文菜单。这是使用类似于 `ContextMenuDataProvider` 的 `ContextMenuArea` API 实现的。
+
+<details><summary>代码</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.ContextMenuArea
@@ -127,6 +141,8 @@ fun main() = singleWindowApplication(title = "Context menu") {
 }
 ```
 
+</p></details>
+
 右键单击蓝色方块将显示包含两个项目的上下文菜单：
 
 ![contextMenuArea](https://user-images.githubusercontent.com/5963351/190020592-15e851f8-e356-413c-b5c3-225393712292.png)
@@ -134,6 +150,8 @@ fun main() = singleWindowApplication(title = "Context menu") {
 ## 设置上下文菜单样式
 
 上下文菜单的样式不符合 `MaterialTheme`。要更改其颜色，您应该覆盖 `LocalContextMenuRepresentation`：
+
+<details><summary>代码</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.DarkDefaultContextMenuRepresentation
@@ -177,11 +195,15 @@ fun main() = singleWindowApplication {
 }
 ```
 
+</p></details>
+
 ![context-menu-style](https://user-images.githubusercontent.com/5963351/190514663-d345a0ba-0b4c-4920-b6cd-743a753d7d83.png)
 
 ## 自定义文本的上下文菜单组件
 
 您可以覆盖应用程序中所有文本和文本字段的文本菜单，覆盖 `TextContextMenu`：
+
+<details><summary>代码</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.ContextMenuDataProvider
@@ -267,11 +289,15 @@ fun CustomTextMenuProvider(content: @Composable () -> Unit) {
 private fun AnnotatedString.crop() = if (length <= 5) toString() else "${take(5)}..."
 ```
 
+</p></details>
+
 ![custom-text-context-menu](https://user-images.githubusercontent.com/5963351/190509388-92cff018-2880-4cfe-95c4-4c023ecac09d.png)
 
 ## 与 Swing 的互操作性
 
 如果您将 Compose 嵌入到现有应用程序中，您可能希望文本上下文菜单看起来与应用程序的其他部分相同。为此，有 `JPopupTextMenu`：
+
+<details><summary>代码</summary><p>
 
 ```kotlin
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -305,13 +331,13 @@ import javax.swing.SwingUtilities
 import org.jetbrains.skiko.hostOs
 
 fun main() = SwingUtilities.invokeLater {
-    val panel = ComposePanel()
-    panel.setContent {
-        JPopupTextMenuProvider(panel) {
-            Column {
-                SelectionContainer {
-                    Text("Hello, Compose!")
-                }
+val panel = ComposePanel()
+panel.setContent {
+JPopupTextMenuProvider(panel) {
+Column {
+SelectionContainer {
+Text("Hello, Compose!")
+}
 
                 var text by remember { mutableStateOf("") }
 
@@ -329,32 +355,32 @@ fun main() = SwingUtilities.invokeLater {
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun JPopupTextMenuProvider(owner: Component, content: @Composable () -> Unit) {
-    val localization = LocalLocalization.current
-    CompositionLocalProvider(
-        LocalTextContextMenu provides JPopupTextMenu(owner) { textManager, items ->
-            JPopupMenu().apply {
-                textManager.cut?.also {
-                    add(
-                        swingItem(localization.cut, Color.RED, KeyEvent.VK_X, it)
-                    )
-                }
-                textManager.copy?.also {
-                    add(
-                        swingItem(localization.copy, Color.GREEN, KeyEvent.VK_C, it)
-                    )
-                }
-                textManager.paste?.also {
-                    add(
-                        swingItem(localization.paste, Color.BLUE, KeyEvent.VK_V, it)
-                    )
-                }
-                textManager.selectAll?.also {
-                    add(JPopupMenu.Separator())
-                    add(
-                       swingItem(localization.selectAll, Color.BLACK, KeyEvent.VK_A, it)
-                    )
-                }
-                
+val localization = LocalLocalization.current
+CompositionLocalProvider(
+LocalTextContextMenu provides JPopupTextMenu(owner) { textManager, items ->
+JPopupMenu().apply {
+textManager.cut?.also {
+add(
+swingItem(localization.cut, Color.RED, KeyEvent.VK_X, it)
+)
+}
+textManager.copy?.also {
+add(
+swingItem(localization.copy, Color.GREEN, KeyEvent.VK_C, it)
+)
+}
+textManager.paste?.also {
+add(
+swingItem(localization.paste, Color.BLUE, KeyEvent.VK_V, it)
+)
+}
+textManager.selectAll?.also {
+add(JPopupMenu.Separator())
+add(
+swingItem(localization.selectAll, Color.BLACK, KeyEvent.VK_A, it)
+)
+}
+
                 // Here we add other items that can be defined additionaly in the other places of the application via ContextMenuDataProvider
                 for (item in items) {
                     add(
@@ -370,29 +396,31 @@ fun JPopupTextMenuProvider(owner: Component, content: @Composable () -> Unit) {
 }
 
 private fun swingItem(
-    label: String,
-    color: Color,
-    key: Int,
-    onClick: () -> Unit
+label: String,
+color: Color,
+key: Int,
+onClick: () -> Unit
 ) = JMenuItem(label).apply {
-    icon = circleIcon(color)
-    accelerator = getKeyStroke(key, if (hostOs.isMacOS) META_DOWN_MASK else CTRL_DOWN_MASK)
-    addActionListener { onClick() }
+icon = circleIcon(color)
+accelerator = getKeyStroke(key, if (hostOs.isMacOS) META_DOWN_MASK else CTRL_DOWN_MASK)
+addActionListener { onClick() }
 }
 
 private fun circleIcon(color: Color) = object : Icon {
-    override fun paintIcon(c: Component?, g: Graphics, x: Int, y: Int) {
-        g.create().apply {
-            this.color = color
-            translate(16, 2)
-            fillOval(0, 0, 16, 16)
-        }
-    }
+override fun paintIcon(c: Component?, g: Graphics, x: Int, y: Int) {
+g.create().apply {
+this.color = color
+translate(16, 2)
+fillOval(0, 0, 16, 16)
+}
+}
 
     override fun getIconWidth() = 16
 
     override fun getIconHeight() = 16
 }
 ```
+
+</p></details>
 
 ![context-menu-by-swing](https://user-images.githubusercontent.com/5963351/191312702-f455ab2c-4c47-4e11-b615-fc67af1af3f9.png)
